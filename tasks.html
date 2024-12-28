@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Tasks</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .reward {
+            margin-bottom: 6px;
+        }
+
+        /* Notification bar */
+        .notification-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #28a745;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+            z-index: 9999;
+        }
+
+        /* Task container */
+        .tg {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 20px auto;
+            width: 85%;
+            background-color: #ffffff;
+            border: 2px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .start-btn, .verify-btn, .claim-btn {
+            height: 40px;
+            width: 80px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .verify-btn {
+            display: none;
+            background-color: #28a745;
+        }
+
+        .claim-btn {
+            display: none;
+            background-color: #28a745;
+        }
+
+        .claim-btn:hover, .verify-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification Bar -->
+    <div class="notification-bar" id="notification-bar">
+        5000 tokens added to your balance!
+    </div>
+
+    <h1>ZapDash Social Tasks</h1>
+
+    <!-- Task 1: React to the Post -->
+    <div class="tg">
+        <div>
+            <p>React to the Post</p>
+            <p class="reward" data-task="react-to-post">+5000</p>
+        </div>
+        <button class="start-btn" onclick="openTask(this, 'react-to-post')">Start</button>
+        <button class="verify-btn" onclick="openVerifyPage('react-to-post')">Verify</button>
+        <button class="claim-btn" onclick="claimReward(this, 'react-to-post')">Claim</button>
+    </div>
+
+    <!-- Task 2: Join the Telegram Community -->
+    <div class="tg">
+        <div>
+            <p>Join the community</p>
+            <p class="reward" data-task="telegram">+5000</p>
+        </div>
+        <button class="start-btn" onclick="openTask(this, 'telegram')">Start</button>
+        <button class="verify-btn" onclick="openVerifyPage('telegram')">Verify</button>
+        <button class="claim-btn" onclick="claimReward(this, 'telegram')">Claim</button>
+    </div>
+
+    <script>
+        let balance = parseInt(localStorage.getItem('balance')) || 0;
+
+        function openTask(button, task) {
+            // Open the task URL based on the task type
+            if (task === 'telegram') {
+                window.open("https://t.me/zapdashcommunity", "_blank");
+            } else if (task === 'react-to-post') {
+                window.open("https://example.com/post", "_blank"); // Replace with actual post URL
+            }
+
+            // Hide "Start" button and show "Verify" button
+            button.style.display = 'none';
+            const verifyButton = button.parentElement.querySelector('.verify-btn');
+            verifyButton.style.display = 'inline-block';
+        }
+
+        function openVerifyPage(task) {
+            // Redirect to the verify.html page with task as a query parameter
+            window.location.href = `verify.html?task=${task}`;
+        }
+
+        function claimReward(button, task) {
+            if (localStorage.getItem(`${task}-claimed`) === 'true') return;
+
+            // Check if the task is verified
+            const isVerified = localStorage.getItem(`${task}-verified`) === 'true';
+
+            if (isVerified) {
+                balance += 5000;
+                localStorage.setItem('balance', balance);
+                localStorage.setItem(`${task}-claimed`, 'true');
+                showNotification("5000 tokens added to your balance!");
+                button.style.display = 'none';
+                button.parentElement.querySelector('.reward').style.display = 'none';
+            } else {
+                alert('Please verify the task first.');
+            }
+        }
+
+        function showNotification(message) {
+            const notificationBar = document.getElementById("notification-bar");
+            notificationBar.innerText = message;
+            notificationBar.style.display = "block";
+            setTimeout(() => {
+                notificationBar.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

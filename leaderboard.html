@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Tabs Styling */
+        .tabs {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .tab a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: black;
+            align-items: center;
+        }
+
+        .tab img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .tab span {
+            font-size: 14px;
+        }
+
+        /* Leaderboard Section */
+        .leaderboard {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .leaderboard img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .leaderboard-container {
+            max-height: 70vh; /* Set scrollable height */
+            overflow-y: auto; /* Add scroll */
+            margin: 20px auto;
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Player Items */
+        .player {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-icon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .player-icon-1 {
+            display: flex;
+            align-items: center;
+        }
+
+        .emoji {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .points {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tabs at the Bottom -->
+    <div class="tabs">
+        <div class="tab">
+            <a href="/index.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/home-unactive.png" alt="Home Icon">
+                <span>Home</span>
+            </a>
+        </div>
+        <div class="tab">
+            <a href="/leaderboard.html">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMFAH5q_AchKTJSV6p3aMYwdAhPJc_i7T-Q-Snk_gMXE_YW_sHP4nLB6ufXTHEA1aaOyzFPFiBb2oqtOHQ1figpA_qZN_a9Stbw4oBnRi57elTkY8pzm45xWdp_VIp4SC7LAidfmQSmS8nbpjY9sWXm=w721-h721-s-no-gm?authuser=0" alt="Leaderboard Icon">
+                <span>Top</span>
+            </a>
+        </div>
+        <div class="tab">
+            <a href="/tasks.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/earn-unactive.png" alt="Tasks Icon">
+                <span>Task</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Centered Leaderboard Section -->
+    <div class="leaderboard">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOK6eZYTOjNqalubW3zHWZxPqB_AfaUk9O8Xl6nc41yPHaH3quXrP7o_Sp-MgpsjEyah14nxiEX-avOzEZQ4e8cv55E9M84vR5v7dPUiVfWAoKKw_oYpjqF8zDsq_2ko0q14t2pvusTIqGbFqUsGL0-=w225-h225-s-no-gm?authuser=0" alt="Leaderboard Icon">
+        <h2>Leaderboard</h2>
+        <div class="leaderboard-container">
+            <div class="player">
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">🥇</div>
+                        <div class="name">elkanadi</div>
+                    </div>
+                    <div class="points">18.5M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">🥈</div>
+                        <div class="name">imGet</div>
+                    </div>
+                    <div class="points">17.1M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">🥉</div>
+                        <div class="name">Ali</div>
+                    </div>
+                    <div class="points">15M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#4</div>
+                        <div class="name">egobra</div>
+                    </div>
+                    <div class="points">14.7M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#5</div>
+                        <div class="name">MaMaL</div>
+                    </div>
+                    <div class="points">14.5M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#6</div>
+                        <div class="name">Hadlee Guerrero</div>
+                    </div>
+                    <div class="points">13M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#7</div>
+                        <div class="name">Journi Crosby</div>
+                    </div>
+                    <div class="points">12.1M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#8</div>
+                        <div class="name">Adelaide Sandoval</div>
+                    </div>
+                    <div class="points">11.6M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#9</div>
+                        <div class="name">Bryce Wong</div>
+                    </div>
+                    <div class="points">9.9M</div>
+                </div>
+                <div class="player-icon">
+                    <div class="player-icon-1">
+                        <div class="emoji">#10</div>
+                        <div class="name">Brantley Copeland</div>
+                    </div>
+                    <div class="points">9.6M</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

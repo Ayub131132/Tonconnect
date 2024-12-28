@@ -1,0 +1,7 @@
+{
+  "url": "https://jwieuejei3u3uyeruurjrhfkgjfjbcfhjdjbf.netlify.app/",                        // required
+  "name": "ZapDash",                      // required
+  "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczNn3-1upt8zameOFBUrMYKcGnWKcXInaaCnHkQKmk4elZFigWDM4Pi79QvCe97siYBn9bpztp1U171MhgRIPjqv3TzsQrxg229HN2s5bUfTvexv2K1QLbrsCeMiKmDnIkcqHmZGM98vJIC986NzhCrx=w721-h721-s-no-gm?authuser=0",               // required
+  "termsOfUseUrl": "<terms-of-use-url>",     // optional
+  "privacyPolicyUrl": "<privacy-policy-url>" // optional
+}
